@@ -1,5 +1,5 @@
 {
-  "name": "Your Project Name",
+  "name": "Piazza App",
   "dockerComposeFile": "docker-compose.yml",
   "service": "app",
   "workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}",
@@ -12,7 +12,7 @@
       "version": "latest"
     },
     "ghcr.io/devcontainers/features/ruby:1": {
-      "version": "3.2.2"
+      "version": "3.2.1"
     },
     "ghcr.io/devcontainers/features/node:1": {
       "version": 19

@@ -8,6 +8,9 @@ services:
     volumes:
       - ../..:/workspaces:cached
     command: sleep infinity
+    depends_on:
+      - postgres
+      - redis
   postgres:
     image: postgres:15-alpine
     restart: unless-stopped
