@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class User < ApplicationRecord
   has_secure_password
 
@@ -18,7 +20,7 @@ class User < ApplicationRecord
   private
 
   def strip_extraneous_spaces
-    self.name = self.name&.strip
-    self.email = self.email&.strip
+    self.name = name&.strip
+    self.email = email&.strip
   end
 end

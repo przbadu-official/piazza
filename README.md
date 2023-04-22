@@ -18,3 +18,12 @@ Check  following screenshots to how to open this project in Devcontainer
 - It should setup everything for you and run rails application in http://localhost:3000
 
 <img width="1506" alt="image" src="https://user-images.githubusercontent.com/4189129/233664306-d61ce085-def7-409d-9173-2f5b83234b33.png">
+
+
+### Few other helpful vscode extensions
+
+- [Ruby Test Explorer](https://marketplace.visualstudio.com/items?itemName=connorshea.vscode-ruby-test-adapter)
+- [Ruby](https://code.visualstudio.com/docs/languages/ruby)
+- [Rubocop](https://marketplace.visualstudio.com/items?itemName=misogi.ruby-rubocop)
+- [Solargraph](https://marketplace.visualstudio.com/items?itemName=castwide.solargraph)
+- [Test explorer UI](https://marketplace.visualstudio.com/items?itemName=hbenl.vscode-test-explorer)

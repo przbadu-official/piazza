@@ -1,7 +1,9 @@
-require "test_helper"
+# frozen_string_literal: true
+
+require 'test_helper'
 
 class UserTest < ActiveSupport::TestCase
-  test "requires a name" do
+  test 'requires a name' do
     @user = User.new(name: '', email: 'john@doe.com', password: 'password')
     assert_not @user.valid?
 
@@ -21,7 +23,7 @@ class UserTest < ActiveSupport::TestCase
   end
 
   test 'requires a unique email' do
-    @existing_user = User.create(name: 'John', email: 'jd@example.com', password: 'password')
+    @existing_user = User.create!(name: 'John', email: 'jd@example.com', password: 'password')
     assert @existing_user.persisted?
 
     @user = User.new(name: 'Jon', email: 'jd@example.com')
@@ -29,7 +31,7 @@ class UserTest < ActiveSupport::TestCase
   end
 
   test 'name and email is stripped of spaces before saving' do
-    @user = User.create(
+    @user = User.create!(
       name: ' John ',
       email: ' john@doe.com '
     )
@@ -49,7 +51,7 @@ class UserTest < ActiveSupport::TestCase
     assert @user.valid?
 
     max_length = ActiveModel::SecurePassword::MAX_PASSWORD_LENGTH_ALLOWED
-    @user.password = "a" * (max_length + 1)
+    @user.password = 'a' * (max_length + 1)
     assert_not @user.valid?
   end
 end

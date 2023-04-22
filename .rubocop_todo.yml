@@ -1,0 +1,5 @@
+---
+Rails/OutputSafety:
+  Details: grace period
+  Exclude:
+    - 'config/initializers/form_errors.rb'
