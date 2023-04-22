@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-ActionView::Base.field_error_proc = lambda do |html_tag, instance|
+ActionView::Base.field_error_proc = lambda { |html_tag, instance|
   if html_tag.match?(/^<label/)
     html_tag
   else
@@ -15,4 +15,4 @@ ActionView::Base.field_error_proc = lambda do |html_tag, instance|
 
     "#{html}#{error_message_markup}".html_safe
   end
-end
+}
