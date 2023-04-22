@@ -14,9 +14,17 @@ class User < ApplicationRecord
   # relationships
   has_many :memberships, dependent: :destroy
   has_many :organizations, through: :memberships
+  has_many :app_sessions, dependent: :destroy
 
   # callbacks
   before_validation :strip_extraneous_spaces
+
+  def self.create_app_session(email:, password:)
+    user = User.find_by(email: email.downcase)
+    return nil if user.blank?
+
+    user.app_sessions.create! if user.authenticate(password)
+  end
 
   private
 

@@ -1,0 +1,6 @@
+{
+  "editor.formatOnSave": true,
+  "ruby.rubocop.onSave": true,
+  "ruby.rubocop.useBundler": false,
+  "ruby.rubocop.configFilePath": ""
+}
