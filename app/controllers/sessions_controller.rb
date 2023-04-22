@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class SessionsController < ApplicationController
+  skip_authentication only: %i[new create]
+
   def new; end
 
   def create

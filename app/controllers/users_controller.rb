@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class UsersController < ApplicationController
+  skip_authentication only: %i[new create]
+
   def new
     @user = User.new
   end
