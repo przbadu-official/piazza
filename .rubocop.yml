@@ -13,6 +13,18 @@
 inherit_from:
   - '.rubocop-performance.yml'
   - '.rubocop-rails.yml'
+  <% unless ENV['REVEAL_RUBOCOP_TODO'] == '1' %>
+    <% Dir.glob('.rubocop_todo/**/*.yml').each do |rubocop_todo_yaml| %>
+  - '<%= rubocop_todo_yaml %>'
+    <% end %>
+  - '.rubocop_todo.yml'
+  <% end %>
+
+inherit_mode:
+  merge:
+    - Include
+    - Exclude
+    - AllowedPatterns
 
 require:
   - rubocop-performance
