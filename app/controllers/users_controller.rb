@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class UsersController < ApplicationController
   def new
     @user = User.new
@@ -7,7 +9,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
 
     if @user.save
-      @organization = Organization.create(members: [@user])
+      @organization = Organization.create!(members: [@user])
       # TODO: Log in user...
 
       redirect_to(root_path,
@@ -15,7 +17,7 @@ class UsersController < ApplicationController
                   flash: { success: t('.welcome', name: @user.name) }
                  )
     else
-      puts("Error: #{@user.errors.messages}")
+      Rails.logger.debug { "Error: #{@user.errors.messages}" }
       render(:new, status: :unprocessable_entity)
     end
   end

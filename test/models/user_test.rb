@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'test_helper'
 
 class UserTest < ActiveSupport::TestCase
@@ -21,7 +23,7 @@ class UserTest < ActiveSupport::TestCase
   end
 
   test 'requires a unique email' do
-    @existing_user = User.create(name: 'John', email: 'jd@example.com', password: 'password')
+    @existing_user = User.create!(name: 'John', email: 'jd@example.com', password: 'password')
     assert @existing_user.persisted?
 
     @user = User.new(name: 'Jon', email: 'jd@example.com')
@@ -29,7 +31,7 @@ class UserTest < ActiveSupport::TestCase
   end
 
   test 'name and email is stripped of spaces before saving' do
-    @user = User.create(
+    @user = User.create!(
       name: ' John ',
       email: ' john@doe.com '
     )
