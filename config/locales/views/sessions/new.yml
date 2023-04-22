@@ -1,0 +1,5 @@
+en:
+  sessions:
+    new:
+      title: Login In
+      submit: Login
