@@ -54,11 +54,11 @@ group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem 'debug', platforms: %i[mri mingw x64_mingw]
   # overcommit to configure git hooks for rubocop
-  gem 'overcommit'
-  gem 'rubocop', require: false
-  gem 'rubocop-performance', require: false
-  gem 'rubocop-rails', require: false
-  gem 'solargraph'
+  gem 'overcommit', '~> 0.60.0'
+  gem 'rubocop', '~> 1.50.2', require: false
+  gem 'rubocop-performance', '~> 1.17.1', require: false
+  gem 'rubocop-rails', '~> 2.19.1', require: false
+  gem 'solargraph', '~> 0.49.0'
 end
 
 group :development do

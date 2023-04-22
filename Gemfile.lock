@@ -286,17 +286,17 @@ DEPENDENCIES
   debug
   jbuilder
   jsbundling-rails
-  overcommit
+  overcommit (~> 0.60.0)
   pg (~> 1.1)
   propshaft
   puma (~> 5.0)
   rails (~> 7.0.4, >= 7.0.4.3)
   redis (~> 4.0)
-  rubocop
-  rubocop-performance
-  rubocop-rails
+  rubocop (~> 1.50.2)
+  rubocop-performance (~> 1.17.1)
+  rubocop-rails (~> 2.19.1)
   selenium-webdriver
-  solargraph
+  solargraph (~> 0.49.0)
   stimulus-rails
   turbo-rails
   tzinfo-data
