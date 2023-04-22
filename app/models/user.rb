@@ -4,7 +4,8 @@ class User < ApplicationRecord
   has_secure_password
 
   # validations
-  validates :password, presence: true, length: { minimum: 8 }
+  validates :password, presence: true, confirmation: true, length: { minimum: 8 }
+  validates :password_confirmation, presence: true
   validates :name, presence: true
   validates :email,
             format: { with: URI::MailTo::EMAIL_REGEXP },
