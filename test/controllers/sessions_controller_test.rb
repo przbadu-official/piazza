@@ -9,9 +9,7 @@ class SessionsControllerTest < ActionDispatch::IntegrationTest
 
   test 'user is logged in and redirected to home with correct credentials' do
     assert_difference('@user.app_sessions.count', 1) do
-      post login_path, params: {
-        user: { email: @user.email, password: 'password' }
-      }
+      log_in(@user)
 
       assert_not_empty cookies[:app_session]
       assert_redirected_to root_path
@@ -19,9 +17,8 @@ class SessionsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'error is rendered for login with incorrect credentials' do
-    post login_path, params: {
-      user: { email: 'wrong@example.com', password: 'password' }
-    }
+    user = User.new(email: 'wrong@example.com')
+    log_in(user)
 
     assert_select '.notification', I18n.t('sessions.create.incorrect_details')
   end
