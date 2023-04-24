@@ -51,7 +51,7 @@ jobs:
       - name: yarn build:css
         run: yarn build:css
       - name: Run tests
-        run: rails test
+        run: bin/rails test
 
   lint:
     runs-on: ubuntu-latest
