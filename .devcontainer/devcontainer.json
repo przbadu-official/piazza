@@ -45,7 +45,7 @@
     5433
   ],
   // Use 'postCreateCommand' to run commands after the container is created.
-  "postCreateCommand": ".devcontainer/boot.sh"
+  "postCreateCommand": ".devcontainer/boot.sh",
   // Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
-  // "remoteUser": "root"
+  "remoteUser": "root"
 }
