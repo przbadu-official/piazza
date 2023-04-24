@@ -7,9 +7,9 @@
 name: "Piazza Web CI"
 on:
   push:
-    branches: [ "main" ]
+    branches: ["main"]
   pull_request:
-    branches: [ "main" ]
+    branches: ["main"]
 jobs:
   test:
     runs-on: ubuntu-latest
@@ -37,8 +37,12 @@ jobs:
       - name: Set up database schema
         run: bin/rails db:schema:load
       # Add or replace test runners here
+      - name: yarn build
+        run: yarn build
+      - name: yarn build:css
+        run: yarn build:css
       - name: Run tests
-        run: bin/rake
+        run: rails test
 
   lint:
     runs-on: ubuntu-latest
@@ -51,8 +55,8 @@ jobs:
           bundler-cache: true
       # Add or replace any other lints here
       - name: Security audit dependencies
-        run: bin/bundler-audit --update
+        run: bundle exec bundler-audit --update
       - name: Security audit application code
-        run: bin/brakeman -q -w2
+        run: bundle exec brakeman -q -w2
       - name: Lint Ruby files
-        run: bin/rubocop --parallel
+        run: bundle exec rubocop app/ test/ --parallel
