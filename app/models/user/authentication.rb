@@ -7,8 +7,12 @@ module User::Authentication
     has_secure_password
 
     # validations
-    validates :password, presence: true, confirmation: true, length: { minimum: 8 }
-    validates :password_confirmation, presence: true
+    validates :password,
+              on: %i[create password_change],
+              presence: true,
+              confirmation: true,
+              length: { minimum: 8 }
+    validates :password_confirmation, presence: true, on: :create
 
     # associations
     has_many :app_sessions, dependent: :destroy
