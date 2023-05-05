@@ -48,6 +48,7 @@ Rails.application.configure do
     host: 'example.com',
     protocol: 'http'
   }
+  config.outbound_email_domain = 'test.com'
 
   # Print deprecation notices to the stderr.
   config.active_support.deprecation = :stderr

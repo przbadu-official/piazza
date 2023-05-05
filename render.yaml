@@ -13,8 +13,17 @@ services:
           property: connectionString
       - key: RAILS_MASTER_KEY
         sync: false
+      - fromGroup: domain
 
 databases:
   - name: piazza-db
     plan: free
     postgresMajorVersion: 14
+
+envVarGroups:
+  - name: domains
+    envVars:
+      - key: DOMAIN_NAME
+        value: piazza.przbadu.dev
+      - key: OUTBOUND_EMAIL_DOMAIN
+        value: piazza.przbadu.dev
