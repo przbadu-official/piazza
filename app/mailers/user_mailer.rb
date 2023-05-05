@@ -9,7 +9,9 @@ class UserMailer < ApplicationMailer
 
   layout 'mailer'
 
-  def password_reset
+  def password_reset(id)
+    @password_reset_id = id
+
     mail(subject: t('.subject'))
   end
 end
