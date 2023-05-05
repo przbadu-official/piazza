@@ -50,10 +50,13 @@ gem 'bootsnap', require: false
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
 
+gem 'premailer-rails', '~> 1.11'
+
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem 'debug', platforms: %i[mri mingw x64_mingw]
   # overcommit to configure git hooks for rubocop
+  gem 'letter_opener', '~> 1.8'
   gem 'overcommit', '~> 0.60.0'
   gem 'rubocop', '~> 1.50.2', require: false
   gem 'rubocop-performance', '~> 1.17.1', require: false
@@ -70,9 +73,9 @@ group :development do
 
   # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
   # gem "spring"
-  gem 'i18n-debug'
-  gem 'bundler-audit'
   gem 'brakeman'
+  gem 'bundler-audit'
+  gem 'i18n-debug'
 end
 
 group :test do

@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   resource :profile, only: %i[show update], controller: 'users'
   namespace :users do
     patch 'change_password', to: 'passwords#update'
+    resources :password_resets, only: %i[new create edit update]
   end
 
   # sessions

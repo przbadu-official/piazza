@@ -35,4 +35,7 @@
 
 /node_modules
 .idea/
+.idea/misc.xml
+.idea/piazza-web.iml
 .DS_Store
+.idea/
