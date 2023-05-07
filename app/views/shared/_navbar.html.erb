@@ -16,29 +16,29 @@
 
   <navbar-menu class="navbar-menu" data-navbar-target="menu">
     <div class="navbar-start">
-      <%= link_to t('.create_ad'), '#', class: 'navbar-item' %>
+      <%= link_to t('.create_ad'), new_listing_path, class: 'navbar-item' %>
       <%= link_to t('.messages'), '#', class: 'navbar-item' if logged_in? %>
     </div>
 
     <div class="navbar-end">
       <%= tag.div class: 'navbar-item has-dropdown is-hoverable mr-4' do %>
         <%= link_to Current.user.name,
-            profile_path,
-            id: 'current_user_name',
-            class: "navbar-link" %>
+                    profile_path,
+                    id: 'current_user_name',
+                    class: "navbar-link" %>
 
         <div class="navbar-dropdown is-right">
           <%= link_to t(".profile"),
-              profile_path,
-              id: 'current_user_name',
-              class: 'navbar-item' %>
+                      profile_path,
+                      id: 'current_user_name',
+                      class: 'navbar-item' %>
           <%= link_to t(".my_ads"), '#', class: 'navbar-item' %>
           <%= link_to t(".saved_ads"), '#', class: 'navbar-item' %>
           <hr class="navbar-divider">
           <%= link_to t(".logout"),
-                logout_path,
-                class: 'navbar-item',
-                data: { turbo_method: :delete } %>
+                      logout_path,
+                      class: 'navbar-item',
+                      data: { turbo_method: :delete } %>
         </div>
       <% end if logged_in? %>
 
