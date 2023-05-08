@@ -1,10 +1,13 @@
 # frozen_string_literal: true
 
 class ListingsController < ApplicationController
-  before_action :load_listing, only: %i[show edit update destroy]
+  before_action :load_listing, except: %i[new create]
+
+  allow_unauthenticated only: :show
 
   def new
     @listing = Listing.new
+    @listing.build_address
   end
 
   def create
@@ -54,7 +57,7 @@ class ListingsController < ApplicationController
 
   def listing_params
     params.require(:listing).permit(
-      :title, :price, :condition, tags: []
+      Listing.permitted_attributes
     )
   end
 

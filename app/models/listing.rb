@@ -1,6 +1,9 @@
 # frozen_string_literal: true
 
 class Listing < ApplicationRecord
+  include PermittedAttributes
+  include HasAddress
+
   # Enum
   enum :condition, {
     mint: 'mint',

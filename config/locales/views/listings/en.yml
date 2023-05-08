@@ -25,6 +25,7 @@ en:
       edit: Edit
       contact: Send message
       save: Save this ad
+      location: Location
     edit:
       publish: Update ad
       delete: Delete

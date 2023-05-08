@@ -32,6 +32,13 @@
       <form-field class="field">
         <%= render 'tags_field', form: form %>
       </form-field>
+
+      <form-field class="field">
+        <%= form.label :address, class: 'label is-large' %>
+        <div class="box">
+          <%= render 'addresses/fields', form: form %>
+        </div>
+      </form-field>
     </div>
   </layout-column>
 
