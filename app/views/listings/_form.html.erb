@@ -5,7 +5,7 @@
 
 <layout-columns class="columns is-centered ml-5 mr-5">
   <layout-column class="box column is-half mt-6 p-5 m-4">
-    <div class="is-flex is-flex-drection-column">
+    <div class="is-flex is-flex-direction-column">
       <form-field class="field">
         <%= form.label :price, class: 'label' %>
         <form-field class="field has-addons">
@@ -27,6 +27,10 @@
           <%= form.select :condition,
                           Listing.human_enum_options(:condition) %>
         </div>
+      </form-field>
+
+      <form-field class="field">
+        <%= render 'tags_field', form: form %>
       </form-field>
     </div>
   </layout-column>

@@ -7,6 +7,13 @@ en:
           near_mint: As good as new
           used: Used
           defective: Defective
+    errors:
+      models:
+        listings:
+          attributes:
+            tags:
+              too_short: You need to specify at least one tag
+              too_long: You can't specify more than 5 tags
   listings:
     new:
       title: Create an ad
@@ -26,3 +33,8 @@ en:
       success: Your ad has been updated!
     destroy:
       success: Your ad has been deleted!
+    tags_field:
+      description: >
+        You can add up to 5 tags to your ad.
+        These act as categories.
+      add_tag: Add Tag
