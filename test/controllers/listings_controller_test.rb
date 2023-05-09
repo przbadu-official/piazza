@@ -14,7 +14,15 @@ class ListingsControllerTest < ActionDispatch::IntegrationTest
         listing: {
           title: Faker::Commerce.product_name,
           price: Faker::Commerce.price.floor,
-          condition: 'mint'
+          condition: 'mint',
+          tags: %w[a b],
+          address_attributes: {
+            line1: '32',
+            line2: 'ABC street',
+            city: 'Seattle',
+            postcode: '109222',
+            country: 'US'
+          }
         }
       }
     end
@@ -38,7 +46,9 @@ class ListingsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'can update a listing' do
+    address = addresses(:address)
     @listing = listings(:auto_listing_1_jerry)
+    @listing.address = address
     new_title = Faker::Commerce.product_name
 
     patch listing_path(@listing), params: {

@@ -9,7 +9,9 @@ class ListingTest < ActiveSupport::TestCase
   end
 
   test 'down case tags before saving' do
+    @address = addresses(:address)
     @listing.tags = %w[Electronics Tools]
+    @listing.address = @address
     @listing.save!
 
     assert_equal %w[electronics tools], @listing.tags

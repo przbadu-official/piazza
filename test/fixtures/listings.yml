@@ -5,6 +5,7 @@ auto_listing_<%= n %>_jerry:
   title: <%= Faker::Commerce.product_name %>
   price: <%= Faker::Commerce.price.floor %>
   condition: mint
+  tags: [ 'a', 'b' ]
 <% end %>
 
 <% 10.times do |n| %>
@@ -14,6 +15,7 @@ auto_listing_<%= n %>_kramer:
   title: <%= Faker::Commerce.product_name %>
   price: <%= Faker::Commerce.price.floor %>
   condition: near_mint
+  tags: [ 'a', 'b' ]
 <% end %>
 
 <% 10.times do |n| %>
@@ -23,6 +25,7 @@ auto_listing_<%= n %>_elaine:
   title: <%= Faker::Commerce.product_name %>
   price: <%= Faker::Commerce.price.floor %>
   condition: mint
+  tags: [ 'a', 'b' ]
 <% end %>
 
 <% 10.times do |n| %>
@@ -32,4 +35,5 @@ auto_listing_<%= n %>_george:
   title: <%= Faker::Commerce.product_name %>
   price: <%= Faker::Commerce.price.floor %>
   condition: near_mint
+  tags: [ 'a', 'b' ]
 <% end %>
