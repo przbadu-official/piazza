@@ -11,6 +11,24 @@
     <% end %>
   <% end unless turbo_native_app? %>
 
+  <% if turbo_native_app? %>
+    <%= link_to t('.shared.navbar.create_ad'),
+                new_listing_path,
+                data: {
+                  controller: 'bridge--element',
+                  bridge_element_id: turbo_native_bridge_element_id(:new_listing),
+                  bridge_element_ios: {
+                    component: 'bar_button',
+                    icon: 'plus',
+                    index: '0'
+                  }.to_json,
+                  bridge_element_android: {
+                    component: 'menu_item',
+                    order: '0'
+                  }.to_json
+                } if logged_in? %>
+  <% end %>
+
   <% page = params[:page].to_i || 1 %>
   <%= turbo_frame_tag "feed_page_#{page}", target: "_top" do %>
     <layout-columns class="columns is-centered is-multiline">
