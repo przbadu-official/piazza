@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module SvgHelper
-  def svg(svg_name, **attributes)
+  def svg_tag(svg_name, **attributes)
     svg_markup = render(file: Rails.root.join("app/views/shared/svg/#{svg_name}.svg"))
 
     xml = Nokogiri::XML(svg_markup)

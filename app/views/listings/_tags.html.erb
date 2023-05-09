@@ -4,7 +4,7 @@
     tags_target: 'container'
   }
 ) do %>
-  <% listing.tags.each do |value| %>
+  <% listing.tags&.each do |value| %>
     <%= render 'listings/tag', value: value %>
   <% end %>
 <% end %>

@@ -38,12 +38,12 @@
 
         <layout-group class="buttons mt-6">
           <%= button_to '#', class: 'button is-secondary is-medium' do %>
-            <%= svg "heart", class: "icon is-small mr-3" %>
+            <%= svg_tag("heart", class: "icon is-small mr-3") %>
             <%= t('.save') %>
           <% end %>
 
           <%= link_to '#', class: 'button is-primary is-medium' do %>
-            <%= svg("message", class: 'icon is-small mr-3', fill: '#fff') %>
+            <%= svg_tag("message", class: 'icon is-small mr-3', fill: '#fff') %>
             <%= t('.contact') %>
           <% end %>
         </layout-group>
@@ -73,40 +73,43 @@
 </layout-columns>
 
 <% if turbo_native_app? && @listing.edit? %>
-  <%= link_to t('.edit'),
+  <%= link_to t(".edit"),
               edit_listing_path(@listing),
               data: {
-                controller: 'bridge--element',
-                bridge_element_id: turbo_native_bridge_element_id(:edit),
+                controller: "bridge--element",
+                bridge_element_id:
+                  turbo_native_bridge_element_id(:edit),
                 bridge_element_ios: {
-                  component: 'bar_button',
-                  icon: 'pencil',
-                  index: '0'
+                  component: "bar_button",
+                  icon: "pencil",
+                  index: "0"
                 }.to_json,
                 bridge_element_android: {
-                  component: 'menu_item',
-                  order: '0'
+                  component: "menu_item",
+                  order: "0"
                 }.to_json
               } %>
-  <%= button_to t('.delete'),
+
+  <%= button_to t(".delete"),
                 listing_path(@listing),
                 method: :delete,
                 data: {
-                  controller: 'bridge--element',
-                  bridge_element_id: turbo_native_bridge_element_id(:delete),
+                  controller: "bridge--element",
+                  bridge_element_id:
+                    turbo_native_bridge_element_id(:delete),
                   bridge_element_ios: {
-                    component: 'bar_button',
-                    icon: 'trash',
-                    index: 1
+                    component: "bar_button",
+                    icon: "trash",
+                    index: "1"
                   }.to_json,
                   bridge_element_android: {
-                    component: 'menu_item',
-                    order: '1'
+                    component: "menu_item",
+                    order: "1"
                   }.to_json
                 },
                 form: {
                   data: {
-                    turbo_confirm: t('.listings.edit.confirm_delete')
+                    turbo_confirm: t("listings.edit.confirm_delete")
                   }
                 } %>
 <% end %>
