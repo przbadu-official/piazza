@@ -25,6 +25,9 @@ class Listing < ApplicationRecord
   # Callbacks
   before_save :downcase_tags
 
+  # Scopes
+  scope :feed, -> { order(created_at: :desc).includes(:address) }
+
   private
 
   def downcase_tags

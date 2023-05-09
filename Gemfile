@@ -51,6 +51,7 @@ gem 'bootsnap', require: false
 # gem "image_processing", "~> 1.2"
 
 gem 'iso_country_codes', '~> 0.7.8'
+gem 'pagy', '~> 5.10'
 gem 'premailer-rails', '~> 1.11'
 
 group :development, :test do

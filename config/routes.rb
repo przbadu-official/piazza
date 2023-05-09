@@ -17,5 +17,6 @@ Rails.application.routes.draw do
   post 'login', to: 'sessions#create'
   delete 'logout', to: 'sessions#destroy'
 
-  resources :listings
+  resources :listings, except: :index
+  resources :my_listings, except: :show
 end
