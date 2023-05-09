@@ -3,8 +3,8 @@ jerry:
   organization: jerry
 
 Kramer:
-  user: Kramer
-  organization: Kramer
+  user: kramer
+  organization: kramer
 
 elaine:
   user: elaine

@@ -1,4 +1,4 @@
-jerry: {}
-Kramer: {}
-elaine: {}
-george: {}
+jerry: { }
+kramer: { }
+elaine: { }
+george: { }

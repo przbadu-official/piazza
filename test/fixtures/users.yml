@@ -3,7 +3,7 @@ jerry:
   email: jerry@example.com
   password_digest: <%= BCrypt::Password.create("password") %>
 
-Kramer:
+kramer:
   name: Kramer
   email: kramer@example.com
   password_digest: <%= BCrypt::Password.create("password") %>
