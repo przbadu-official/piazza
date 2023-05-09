@@ -19,10 +19,8 @@ class ListingsController < ApplicationController
     )
 
     if @listing.save
-      redirect_to(listing_path(@listing),
-                  flash: { success: t('.success') },
-                  status: :see_other
-                 )
+      flash[:success] = t('.success')
+      recede_or_redirect_to(listing_path(@listing), status: :see_other)
     else
       render(:new, status: :unprocessable_entity)
     end
@@ -34,11 +32,8 @@ class ListingsController < ApplicationController
 
   def update
     if @listing.update(listing_params)
-      redirect_to(
-        listing_path(@listing),
-        status: :see_other,
-        flash: { success: t('.success') }
-      )
+      flash[:success] = t('.success')
+      recede_or_redirect_to(listing_path(@listing), status: :see_other)
     else
       render(:edit, status: :unprocessable_entity)
     end
@@ -47,7 +42,7 @@ class ListingsController < ApplicationController
   def destroy
     @listing.destroy!
     flash[:success] = t('.success')
-    redirect_to(my_listings_path, status: :see_other)
+    recede_or_redirect_to(my_listings_path, status: :see_other)
   end
 
   private

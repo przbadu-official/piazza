@@ -3,6 +3,7 @@
 class Listing < ApplicationRecord
   include PermittedAttributes
   include HasAddress
+  include AccessPolicy
 
   # Enum
   enum :condition, {

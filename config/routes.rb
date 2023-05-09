@@ -18,5 +18,5 @@ Rails.application.routes.draw do
   delete 'logout', to: 'sessions#destroy'
 
   resources :listings, except: :index
-  resources :my_listings, except: :show
+  resource :my_listings, only: :show
 end
