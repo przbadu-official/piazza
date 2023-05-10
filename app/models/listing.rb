@@ -16,18 +16,24 @@ class Listing < ApplicationRecord
   # Associations
   belongs_to :organization
   belongs_to :creator, class_name: 'User'
+  has_one_attached :cover_photo
 
   # Validations
   validates :title, length: { in: 10..100 }
   validates :price, numericality: { only_integer: true }
   validates :condition, presence: true
   validates :tags, length: { in: 1..5 }
+  validates :cover_photo, presence: true
 
   # Callbacks
   before_save :downcase_tags
 
   # Scopes
-  scope :feed, -> { order(created_at: :desc).includes(:address) }
+  scope :feed, lambda {
+    order(created_at: :desc)
+      .includes(:address)
+      .with_attached_cover_photo
+  }
 
   private
 

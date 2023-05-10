@@ -1,7 +1,8 @@
 # frozen_string_literal: true
 
 module TurboNativeHelper
-  public_constant MAX_INT = 2**30 - 1
+  MAX_INT = 2**30 - 1
+  private_constant :MAX_INT
 
   def turbo_native_bridge_platform
     case request.user_agent
