@@ -50,6 +50,7 @@ gem 'bootsnap', require: false
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 gem 'image_processing', '~> 1.2'
 
+gem 'aws-sdk-s3', require: false
 gem 'iso_country_codes', '~> 0.7.8'
 gem 'pagy', '~> 5.10'
 gem 'premailer-rails', '~> 1.11'
