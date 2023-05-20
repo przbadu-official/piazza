@@ -1,14 +1,13 @@
 # frozen_string_literal: true
 
-10.times do
+%w[admin@example.com user@example.com].each do |email|
   user = User.create!(
+    email:,
     name: Faker::Name.name,
-    email: Faker::Internet.email,
     password: 'password',
     password_confirmation: 'password'
   )
   Organization.create!(members: [user])
-  Rails.logger.debug { "User #{user.id} (#{user.name}) created!" }
 end
 
 10_000.times do
@@ -22,11 +21,12 @@ end
     filename: 'photo.jpg'
   )
 
-  listing = Listing.create!(
+  Listing.create!(
+    description: Faker::Lorem.paragraphs.join('<br/>'),
     creator: random_user,
     organization: random_user.organizations.first,
     title: Faker::Commerce.product_name,
-    cover_photo: cover_photo_blob,
+    photo: cover_photo_blob,
     price: Faker::Commerce.price.floor,
     condition: Listing.conditions.values.sample,
     tags: Faker::Commerce.send(:categories, 4),
@@ -38,6 +38,4 @@ end
       postcode: Faker::Address.postcode
     }
   )
-
-  Rails.logger.debug { "Listing #{listing.title} for User:  #{random_user.id} (#{random_user.name}) created!" }
 end

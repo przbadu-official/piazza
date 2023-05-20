@@ -2,8 +2,8 @@
   <div class="card-image">
     <%= link_to listing_path(listing) do %>
       <figure class="image is-4by3">
-        <% if listing.cover_photo.present? %>
-          <%= image_tag listing.cover_photo.variant(resize_to_fit: [500, 500]), loading: :lazy %>
+        <% if listing.photo.present? %>
+          <%= image_tag listing.photo.variant(resize_to_fit: [500, 500]), loading: :lazy %>
         <% end %>
       </figure>
     <% end %>

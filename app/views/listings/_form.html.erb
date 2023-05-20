@@ -5,8 +5,8 @@
 
 <%= render 'shared/image_field',
            form: form,
-           attribute: :cover_photo,
-           field_label: t('.cover_photo') %>
+           attribute: :photo,
+           field_label: t('.photo') %>
 
 <layout-columns class="columns is-centered ml-5 mr-5">
   <layout-column class="box column is-half mt-6 p-5 m-4">
@@ -48,5 +48,13 @@
   </layout-column>
 
   <layout-column class="box column is-half mt-6 p-5 m-4">
+    <form-field class="field">
+      <%= form.label :description, class: 'label' %>
+      <%= form.rich_text_area :description %>
+
+      <%= tag.p class: 'help is-danger' do %>
+        <%= form.object.errors.message_for(:description).to_sentence %>
+      <% end if form.object.errors.include?(:description) %>
+    </form-field>
   </layout-column>
 </layout-columns>

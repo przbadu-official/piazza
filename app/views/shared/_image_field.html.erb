@@ -22,7 +22,7 @@
           ) %>
       <%= form.hidden_field(
             attribute,
-            value: form.object.cover_photo&.signed_id,
+            value: form.object.photo&.signed_id,
             data: {
               image_upload_target: 'hiddenInput'
             }
@@ -37,7 +37,7 @@
   </div>
 
   <figure class="image is-relative">
-    <% url = form.object.cover_photo.present? ? url_for(form.object.cover_photo) : '' %>
+    <% url = form.object.photo.present? ? url_for(form.object.photo) : '' %>
     <%= image_tag url, data: { image_upload_target: 'preview' } %>
   </figure>
 
